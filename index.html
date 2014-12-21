@@ -2,14 +2,19 @@
 <html lang="en" ng-app="store">
 <head>
   <meta charset="utf-8">
-  <title>Tutorial</title>
+  <title>Tutorial 1</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
-<body>
+<body ng-controller="StoreController as store">
 	<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
 
-	<p>testing {{4 + 6}}</p>
+	<div ng-repeat="product in store.products">
+		<h1> {{product.name}} </h1>
+		<h2> ${{product.price}} </h2>
+		<p> {{product.description}} </p>
+		<button ng-show="product.canPurchase">Add to Cart</button>
+	</div>
 
 </body>
 </html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" ng-app="store">
+<head>
+  <meta charset="utf-8">
+  <title>Tutorial 2</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body ng-controller="StoreController as store">
+	<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+
+	<ul class="list-group">
+		<li ng-repeat="product in store.products">
+			<h3>
+				{{product.name}}
+				<em class="pull-right">{{product.price | currency}}</em>
+				<img ng-src="{{product.images[0].thumb}}">
+			</h3>
+		</li>
+	</ul>
+	
+	<section ng-controller="PanelController as panel">
+		<ul class="nav nav-pills">
+			<li ng-class="{ active:panel.isSet(1) }">
+				<a href ng-click="panel.setTab(1)">Description</a>
+			</li>
+			<li ng-class="{ active:panel.isSet(2) }">
+				<a href ng-click="panel.setTab(2)">Specifications</a>
+			</li>
+			<li ng-class="{ active:panel.isSet(3) }">
+				<a href ng-click="panel.setTab(3)">Reviews</a>
+			</li>
+		</ul>
+	</section>
+
+	<div class="panel" ng-show="panel.setTab(1)">
+		<h4>Description</h4>
+		<p>{{product.description}}</p>
+	</div>
+	<div class="panel" ng-show="panel.isSet(2)">
+		<h4>Specification</h4>
+		<p>{{product.}}</p>
+	</div>
+	<div class="panel" ng-show="panel.isSet(3)">
+		<h4>Review</h4>
+		<p>{{product.}}</p>
+	</div>
+
+</body>
+</html>
